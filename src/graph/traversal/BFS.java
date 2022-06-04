@@ -1,11 +1,12 @@
 package graph.traversal;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
 public class BFS {
-    public void bfs(List<List<Integer>> list, int n) {
+    public void bfs(List<ArrayList<Integer>> list, int n) {
         boolean[] v = new boolean[n];
         for (int i = 1; i < n; i++) {
             if (!v[i])
@@ -13,7 +14,7 @@ public class BFS {
         }
     }
 
-    private void compute(boolean[] v, List<List<Integer>> list, int node) {
+    private void compute(boolean[] v, List<ArrayList<Integer>> list, int node) {
         Queue<Integer> q = new LinkedList<>();
         q.add(node);
         v[node] = true;

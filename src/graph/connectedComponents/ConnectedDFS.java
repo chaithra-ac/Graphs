@@ -1,9 +1,10 @@
 package graph.connectedComponents;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ConnectedDFS {
-    public int numberOfConnectedComponents(List<List<Integer>> list, int n) {
+    public int numberOfConnectedComponents(List<ArrayList<Integer>> list, int n) {
         int count = 0;
         boolean[] v = new boolean[n];
         for (int i = 1; i < n; i++) {
@@ -16,7 +17,7 @@ public class ConnectedDFS {
         return count;
     }
 
-    private void DFS(List<List<Integer>> list, boolean[] v, int i) {
+    private void DFS(List<ArrayList<Integer>> list, boolean[] v, int i) {
 //        int temp=i;
         for (Integer adj : list.get(i)) {
             if (!v[adj]) {

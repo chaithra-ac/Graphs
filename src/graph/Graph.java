@@ -7,6 +7,9 @@ import graph.connectedComponents.ConnectedDFS;
 import graph.cycleDetection.undirected.CycleBFS;
 import graph.cycleDetection.undirected.CycleDFS;
 import graph.cycleDetection.undirected.Pair;
+import graph.shortestPath.bellmanford.BellmanAlgo;
+import graph.shortestPath.dijkstras.DijkstrasAlgo;
+import graph.shortestPath.shortestPathUsingTopo.ShortestPathUsingTopo;
 import graph.shortestPath.unweighted.ShortestPathBFS;
 import graph.shortestPath.unweighted.ShortestPathDFS;
 import graph.shortestPath.weighted.ShortestPathBFSW;
@@ -25,7 +28,7 @@ public class Graph {
 
 //     undirected graph
         int n = 8;
-        List<List<Integer>> undirected = new ArrayList<>();
+        List<ArrayList<Integer>> undirected = new ArrayList<>();
         for (int i = 1; i <= n; i++)
             undirected.add(new ArrayList<>());
 //     1-2
@@ -64,7 +67,7 @@ public class Graph {
 
 //     directed graph
         int n1 = 6;
-        List<List<Integer>> directed = new ArrayList<>();
+        List<ArrayList<Integer>> directed = new ArrayList<>();
         for (int i = 0; i < n1; i++)
             directed.add(new ArrayList());
         for (int i = 0; i < n1; i++) {
@@ -89,7 +92,7 @@ public class Graph {
 
 //    directed weighted graph
         int n3 = 5;
-        ArrayList<ArrayList<Pair>> dwg = new ArrayList<ArrayList<Pair>>();
+        List<ArrayList<Pair>> dwg = new ArrayList<>();
         for (int i = 0; i < n3; i++)
             dwg.add(new ArrayList());
 
@@ -141,17 +144,32 @@ public class Graph {
         ShortestPathBFS spb = new ShortestPathBFS();
         ShortestPathDFS spd = new ShortestPathDFS();
         System.out.println("shortest path in unweighted graph to all nodes using BFS");
-        spb.shortestPathBFS(directed, n1);
+        spb.shortestPathBFS(directed, n1, 0);
         System.out.println("shortest path in unweighted graph to all nodes using DFS");
-        spd.shortestPathDFS(directed, n1);
+        spd.shortestPathDFS(directed, n1, 0);
 
 //     shortest path in weighted graph to all nodes
         ShortestPathBFSW spdw = new ShortestPathBFSW();
         ShortestPathDFSW spbw = new ShortestPathDFSW();
         System.out.println("shortest path in weighted graph to all nodes using BFS");
-        spdw.shortestPathBFS(dwg, n3);
+        spdw.shortestPathBFS(dwg, n3, 0);
         System.out.println("shortest path in weighted graph to all nodes using DFS");
-        spbw.shortestPathDFS(dwg, n3);
+        spbw.shortestPathDFS(dwg, n3, 0);
+
+//        shortest path using topological sort in DAG
+        ShortestPathUsingTopo spt = new ShortestPathUsingTopo();
+        System.out.println("shortest path in weighted graph to all nodes using topological sort");
+        spt.shortestPath(dwg,n3,0);
+
+//        Dijkstras Algorithm
+        DijkstrasAlgo dij = new DijkstrasAlgo();
+        System.out.println("shortest path in weighted graph to all nodes using Dijkstras Algorithm");
+        dij.dijShortestPath(dwg, n3, 0);
+
+//        Bellman ford Algorithm
+        BellmanAlgo bell = new BellmanAlgo();
+        System.out.println("shortest path in weighted graph to all nodes using Bellman ford Algorithm");
+        bell.bellShortestPath(dwg, n3, 0);
 
 
     }

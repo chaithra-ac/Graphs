@@ -1,12 +1,13 @@
 package graph.connectedComponents;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
 public class ConnectedBFS {
 
-    public int numberOfConnectedComponents(List<List<Integer>> list, int n) {
+    public int numberOfConnectedComponents(List<ArrayList<Integer>> list, int n) {
         boolean[] v = new boolean[n];
         int count = 0;
         for (int i = 1; i < n; i++) {
@@ -18,7 +19,7 @@ public class ConnectedBFS {
         return count;
     }
 
-    private void BFS(boolean[] v, List<List<Integer>> list, int node) {
+    private void BFS(boolean[] v, List<ArrayList<Integer>> list, int node) {
         Queue<Integer> q = new LinkedList<>();
         q.add(node);
         v[node] = true;

@@ -1,11 +1,12 @@
 package graph.cycleDetection.undirected;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
 public class CycleBFS {
-    public int cycleDetection(List<List<Integer>> list, int n) {
+    public int cycleDetection(List<ArrayList<Integer>> list, int n) {
         int count = 0;
         boolean[] v = new boolean[n];
         for (int i = 1; i < n; i++) {
@@ -16,7 +17,7 @@ public class CycleBFS {
         return count;
     }
 
-    private boolean isCycle(List<List<Integer>> list, boolean[] v, int node, int parent) {
+    private boolean isCycle(List<ArrayList<Integer>> list, boolean[] v, int node, int parent) {
         Queue<Pair> q = new LinkedList<>();
         q.add(new Pair(node, parent));
         v[node] = true;

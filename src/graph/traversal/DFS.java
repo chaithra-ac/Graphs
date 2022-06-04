@@ -1,9 +1,10 @@
 package graph.traversal;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DFS {
-    public void dfs(List<List<Integer>> list, int n) {
+    public void dfs(List<ArrayList<Integer>> list, int n) {
         boolean[] v = new boolean[n];
         for (int i = 1; i < n; i++) {
             if (!v[i]) {
@@ -13,7 +14,7 @@ public class DFS {
         }
     }
 
-    private void compute(List<List<Integer>> list, boolean[] v, int i) {
+    private void compute(List<ArrayList<Integer>> list, boolean[] v, int i) {
 //        int temp=i;
         System.out.print(i + " ");
         for (Integer adj : list.get(i)) {

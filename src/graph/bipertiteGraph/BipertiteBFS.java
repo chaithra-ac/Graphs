@@ -1,12 +1,13 @@
 package graph.bipertiteGraph;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
 public class BipertiteBFS {
 
-    public boolean isBipertite(List<List<Integer>> list, int n) {
+    public boolean isBipertite(List<ArrayList<Integer>> list, int n) {
         int[] v = new int[n];
         for (int i = 0; i < n; i++) {
             if (v[i] == 0) {

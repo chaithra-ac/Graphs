@@ -1,9 +1,10 @@
 package graph.cycleDetection.undirected;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CycleDFS {
-    public int cycleDetection(List<List<Integer>> list, int n) {
+    public int cycleDetection(List<ArrayList<Integer>> list, int n) {
         boolean[] v = new boolean[n];
         int count = 0;
         for (int i = 0; i < n; i++) {
@@ -16,7 +17,7 @@ public class CycleDFS {
         return count;
     }
 
-    private boolean isCycle(List<List<Integer>> list, boolean[] v, int node, int parent) {
+    private boolean isCycle(List<ArrayList<Integer>> list, boolean[] v, int node, int parent) {
 
         for (Integer adj : list.get(node)) {
             if (v[adj] && adj != parent) {
