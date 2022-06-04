@@ -19,6 +19,7 @@ public class ConnectedBFS {
         return count;
     }
 
+
     private void BFS(boolean[] v, List<ArrayList<Integer>> list, int node) {
         Queue<Integer> q = new LinkedList<>();
         q.add(node);

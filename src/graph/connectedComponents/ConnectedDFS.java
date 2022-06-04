@@ -18,7 +18,6 @@ public class ConnectedDFS {
     }
 
     private void DFS(List<ArrayList<Integer>> list, boolean[] v, int i) {
-//        int temp=i;
         for (Integer adj : list.get(i)) {
             if (!v[adj]) {
                 v[adj] = true;
