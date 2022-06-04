@@ -1,6 +1,5 @@
 package graph.bipertiteGraph;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,10 +11,8 @@ public class BipertiteDFS {
             if (v[i] == 0 && (!compute(list, n, i, v, 1)))
                 return false;
         }
-
         return true;
     }
-
     private boolean compute(List<ArrayList<Integer>> list, int n, int node, int[] v, int color) {
         v[node] = color;
         for (Integer adj : list.get(node)) {
