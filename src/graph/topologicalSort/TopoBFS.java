@@ -14,11 +14,13 @@ public class TopoBFS {
             for (int adj : list.get(i))
                 indegree[adj]++;
         }
+
         Queue<Integer> q = new LinkedList<>();
         for (int i = 0; i < n; i++) {
             if (indegree[i] == 0)
                 q.add(i);
         }
+
         while (!q.isEmpty()) {
             int node = q.poll();
             System.out.print(node + " ");
@@ -28,6 +30,7 @@ public class TopoBFS {
                     q.add(adj);
             }
         }
+
         System.out.println();
 
     }
