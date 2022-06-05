@@ -18,14 +18,14 @@ public class CycleDFS {
     }
 
     private boolean isCycle(List<ArrayList<Integer>> list, boolean[] v, int node, int parent) {
-
+        v[node] = true;
         for (Integer adj : list.get(node)) {
-            if (v[adj] && adj != parent) {
-                return true;
-            }
             if (!v[adj]) {
-                v[adj] = true;
-                isCycle(list, v, adj, node);
+                if (isCycle(list, v, adj, node)) return true;
+            } else {
+                if (adj != parent)
+                    return true;
+
             }
         }
         return false;

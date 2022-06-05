@@ -122,8 +122,8 @@ public class Graph {
 //     cycle detection
         CycleBFS cyb = new CycleBFS();
         CycleDFS cyd = new CycleDFS();
-        System.out.println(cyb.cycleDetection(undirected, n));
-        System.out.println(cyd.cycleDetection(undirected, n));
+        System.out.println("Number of cycles using BFS : "+cyb.cycleDetection(undirected, n));
+        System.out.println("Number of cycles using DFS : "+cyd.cycleDetection(undirected, n));
 
 //    Bipertite Graph
         BipertiteBFS bb = new BipertiteBFS();
