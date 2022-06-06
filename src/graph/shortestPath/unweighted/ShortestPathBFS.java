@@ -9,12 +9,11 @@ import java.util.Queue;
 
 public class ShortestPathBFS {
     public void shortestPathBFS(List<ArrayList<Integer>> list, int n, int source) {
-        boolean[] b = new boolean[n];
         int[] distance = new int[n];
-        Queue<Integer> q = new LinkedList<>();
         for (int i = 1; i < n; i++)
             distance[i] = 999;
         distance[source] = 0;
+        Queue<Integer> q = new LinkedList<>();
         q.add(source);
         while (!q.isEmpty()) {
             int node = q.poll();

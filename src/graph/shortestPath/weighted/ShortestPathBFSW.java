@@ -9,7 +9,6 @@ import java.util.Queue;
 
 public class ShortestPathBFSW {
     public void shortestPathBFS(List<ArrayList<Pair>> list, int n, int source) {
-        boolean[] b = new boolean[n];
         int[] distance = new int[n];
         for (int i = 1; i < n; i++)
             distance[i] = 999;
@@ -19,10 +18,8 @@ public class ShortestPathBFSW {
         while (!q.isEmpty()) {
             int node = q.poll();
             for (Pair adj : list.get(node)) {
-                if (distance[adj.node] > distance[node] + adj.parent)
+                if (distance[adj.node] > distance[node] + adj.parent){
                     distance[adj.node] = distance[node] + adj.parent;
-                if (!b[adj.node]) {
-                    b[adj.node] = true;
                     q.add(adj.node);
                 }
             }

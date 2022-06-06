@@ -7,12 +7,10 @@ import java.util.List;
 
 public class ShortestPathDFSW {
     public void shortestPathDFS(List<ArrayList<Pair>> list, int n, int source) {
-        boolean[] b = new boolean[n];
         int[] distance = new int[n];
         for (int i = 1; i < n; i++)
             distance[i] = 999;
-        distance[source] = 0;
-        dfs(b, distance, 0, list);
+        dfs( distance, 0, list);
 
         for (int i = 0; i < n; i++)
             System.out.print(distance[i] + " ");
@@ -20,13 +18,11 @@ public class ShortestPathDFSW {
 
     }
 
-    private void dfs(boolean[] b, int[] distance, int node, List<ArrayList<Pair>> list) {
-        b[node] = true;
+    private void dfs( int[] distance, int node, List<ArrayList<Pair>> list) {
         for (Pair adj : list.get(node)) {
-            if (distance[adj.node] > distance[node] + adj.parent)
+            if (distance[adj.node] > distance[node] + adj.parent){
                 distance[adj.node] = distance[node] + adj.parent;
-            if (!b[adj.node]) {
-                dfs(b, distance, adj.node, list);
+                dfs( distance, adj.node, list);
             }
         }
     }
