@@ -8,8 +8,8 @@ import java.util.Queue;
 public class CycleBFS {
     public int cycleDetection(List<ArrayList<Integer>> list, int n) {
         int count = 0;
-        boolean[] v = new boolean[n];
-        for (int i = 1; i < n; i++) {
+        boolean[] v = new boolean[n+1];
+        for (int i = 1; i <= n; i++) {
             if (!v[i]) {
                 if (isCycle(list, v, i, -1)) count++;
             }

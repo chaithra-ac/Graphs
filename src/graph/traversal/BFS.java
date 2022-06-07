@@ -7,8 +7,8 @@ import java.util.Queue;
 
 public class BFS {
     public void bfs(List<ArrayList<Integer>> list, int n) {
-        boolean[] v = new boolean[n];
-        for (int i = 1; i < n; i++) {
+        boolean[] v = new boolean[n + 1];
+        for (int i = 1; i <= n; i++) {
             if (!v[i])
                 compute(v, list, i);
         }

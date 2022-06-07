@@ -7,6 +7,8 @@ import graph.connectedComponents.ConnectedDFS;
 import graph.cycleDetection.undirected.CycleBFS;
 import graph.cycleDetection.undirected.CycleDFS;
 import graph.cycleDetection.undirected.Pair;
+import graph.kruskal.KruskalAlgo;
+import graph.prims.PrimsAlgo;
 import graph.shortestPath.bellmanford.BellmanAlgo;
 import graph.shortestPath.dijkstras.DijkstrasAlgo;
 import graph.shortestPath.shortestPathUsingTopo.ShortestPathUsingTopo;
@@ -27,9 +29,9 @@ public class Graph {
 
 
 //     undirected graph
-        int n = 8;
+        int n = 7;
         List<ArrayList<Integer>> undirected = new ArrayList<>();
-        for (int i = 1; i <= n; i++)
+        for (int i = 0; i <= n; i++)
             undirected.add(new ArrayList<>());
 //     1-2
         undirected.get(1).add(2);
@@ -65,29 +67,50 @@ public class Graph {
         mat[3][4] = 1;
         mat[4][3] = 1;
 
+
+//        undirected weighted graph
+        List<ArrayList<Pair>> undwg = new ArrayList<>();
+        for (int i = 0; i <=n; i++)
+            undwg.add(new ArrayList<>());
+//     1-2
+        undwg.get(1).add(new Pair(2, 3));
+        undwg.get(2).add(new Pair(1, 3));
+//         1-3
+        undwg.get(1).add(new Pair(3, 5));
+        undwg.get(3).add(new Pair(1, 5));
+//         2-5
+        undwg.get(2).add(new Pair(5, 7));
+        undwg.get(5).add(new Pair(2, 7));
+//      5-4
+        undwg.get(5).add(new Pair(4, 9));
+        undwg.get(4).add(new Pair(5, 9));
+//        3-4
+        undwg.get(3).add(new Pair(4, 1));
+        undwg.get(4).add(new Pair(3, 1));
+
+//        6-7
+        undwg.get(6).add(new Pair(7, 8));
+        undwg.get(7).add(new Pair(6, 8));
+
 //     directed graph
         int n1 = 6;
         List<ArrayList<Integer>> directed = new ArrayList<>();
         for (int i = 0; i < n1; i++)
             directed.add(new ArrayList());
-        for (int i = 0; i < n1; i++) {
-            directed.get(0).add(1);
-            directed.get(0).add(5);
+        directed.get(0).add(1);
+        directed.get(0).add(5);
 
-            directed.get(1).add(2);
-            directed.get(1).add(4);
+        directed.get(1).add(2);
+        directed.get(1).add(4);
 
-            directed.get(3).add(2);
+        directed.get(3).add(2);
 
-            directed.get(3).add(1);
-            directed.get(3).add(0);
+        directed.get(3).add(1);
+        directed.get(3).add(0);
 
-            directed.get(3).add(4);
+        directed.get(3).add(4);
 
-            directed.get(5).add(4);
-
-
-        }
+        directed.get(5).add(4);
 
 
 //    directed weighted graph
@@ -104,8 +127,8 @@ public class Graph {
         dwg.get(3).add(new Pair(2, 3));
 
 //        Negative weighted graph
-        int [][]nwg={{3,2,6},{5,3,1},{0,1,5},{1,5,-3},{1,2,-2},{3,4,-2},{2,4,-2},{2,4,3}};
-        int nw=6;
+        int[][] nwg = {{3, 2, 6}, {5, 3, 1}, {0, 1, 5}, {1, 5, -3}, {1, 2, -2}, {3, 4, -2}, {2, 4, -2}, {2, 4, 3}};
+        int nw = 6;
 
 //     traversal
         System.out.println("BFS");
@@ -125,8 +148,8 @@ public class Graph {
 //     cycle detection
         CycleBFS cyb = new CycleBFS();
         CycleDFS cyd = new CycleDFS();
-        System.out.println("Number of cycles using BFS : "+cyb.cycleDetection(undirected, n));
-        System.out.println("Number of cycles using DFS : "+cyd.cycleDetection(undirected, n));
+        System.out.println("Number of cycles using BFS : " + cyb.cycleDetection(undirected, n));
+        System.out.println("Number of cycles using DFS : " + cyd.cycleDetection(undirected, n));
 
 //    Bipertite Graph
         BipertiteBFS bb = new BipertiteBFS();
@@ -162,7 +185,7 @@ public class Graph {
 //        shortest path using topological sort in DAG
         ShortestPathUsingTopo spt = new ShortestPathUsingTopo();
         System.out.println("shortest path in weighted graph to all nodes using topological sort");
-        spt.shortestPath(dwg,n3,0);
+        spt.shortestPath(dwg, n3, 0);
 
 //        Dijkstras Algorithm
         DijkstrasAlgo dij = new DijkstrasAlgo();
@@ -174,6 +197,15 @@ public class Graph {
         System.out.println("shortest path in weighted graph to all nodes using Bellman ford Algorithm");
         bell.bellShortestPath(nwg, nw, 0);
 
+//        Prims algorithm
+        PrimsAlgo pa = new PrimsAlgo();
+        System.out.println("Minimum spanning tree of the graph using Prims Algorithm");
+        pa.primsAlgo(undwg, n);
+
+//      Kruskal Algorithm
+        KruskalAlgo ka = new KruskalAlgo();
+        System.out.println("Minimum spanning tree of the graph using Kruskal Algorithm");
+        ka.kruskalAlgo(undwg, n);
 
     }
 }

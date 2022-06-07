@@ -5,8 +5,8 @@ import java.util.List;
 
 public class DFS {
     public void dfs(List<ArrayList<Integer>> list, int n) {
-        boolean[] v = new boolean[n];
-        for (int i = 1; i < n; i++) {
+        boolean[] v = new boolean[n + 1];
+        for (int i = 1; i <= n; i++) {
             if (!v[i]) {
                 v[i] = true;
                 compute(list, v, i);
@@ -15,7 +15,6 @@ public class DFS {
     }
 
     private void compute(List<ArrayList<Integer>> list, boolean[] v, int i) {
-//        int temp=i;
         System.out.print(i + " ");
         for (Integer adj : list.get(i)) {
             if (!v[adj]) {
