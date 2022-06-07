@@ -5,8 +5,9 @@ import java.util.List;
 
 public class CycleDFS {
     public int cycleDetection(List<ArrayList<Integer>> list, int n) {
-        boolean[] v = new boolean[n+1];
+        boolean[] v = new boolean[n + 1];
         int count = 0;
+
         for (int i = 1; i <= n; i++) {
             if (!v[i]) {
                 v[i] = true;
