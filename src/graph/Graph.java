@@ -103,6 +103,9 @@ public class Graph {
         dwg.get(4).add(new Pair(3, 5));
         dwg.get(3).add(new Pair(2, 3));
 
+//        Negative weighted graph
+        int [][]nwg={{3,2,6},{5,3,1},{0,1,5},{1,5,-3},{1,2,-2},{3,4,-2},{2,4,-2},{2,4,3}};
+        int nw=6;
 
 //     traversal
         System.out.println("BFS");
@@ -169,7 +172,7 @@ public class Graph {
 //        Bellman ford Algorithm
         BellmanAlgo bell = new BellmanAlgo();
         System.out.println("shortest path in weighted graph to all nodes using Bellman ford Algorithm");
-        bell.bellShortestPath(dwg, n3, 0);
+        bell.bellShortestPath(nwg, nw, 0);
 
 
     }

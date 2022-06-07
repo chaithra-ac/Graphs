@@ -2,18 +2,15 @@ package graph.shortestPath.dijkstras;
 
 import graph.cycleDetection.undirected.Pair;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class DijkstrasAlgo {
 
     public void dijShortestPath(List<ArrayList<Pair>> list, int n, int source) {
         int[] distance = new int[n];
 
-        for (int i = 1; i < n; i++)
-            distance[i] = 999;
+        Arrays.fill(distance,999);
+        distance[source] =0;
 
         distance[source] = 0;
 
@@ -35,8 +32,7 @@ public class DijkstrasAlgo {
                 }
             }
         }
-        for (int i : distance)
-            System.out.print(i + " ");
+        System.out.println(Arrays.toString(distance));
         System.out.println();
 
     }

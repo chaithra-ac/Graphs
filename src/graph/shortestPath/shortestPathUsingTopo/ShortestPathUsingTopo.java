@@ -3,6 +3,7 @@ package graph.shortestPath.shortestPathUsingTopo;
 import graph.cycleDetection.undirected.Pair;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
 
@@ -15,8 +16,8 @@ public class ShortestPathUsingTopo {
                 topo(i, list, stack, b);
         }
         int[] distance = new int[n];
-        for (int i = 1; i < n; i++)
-            distance[i] = 999;
+        Arrays.fill(distance,999);
+        distance[source] =0;
         distance[source] = 0;
         while (!stack.isEmpty()) {
             int node = stack.pop();
@@ -26,8 +27,7 @@ public class ShortestPathUsingTopo {
                         distance[adj.node] = distance[node] + adj.parent;
                 }
         }
-        for (int i = 0; i < n; i++)
-            System.out.print(distance[i] + " ");
+        System.out.println(Arrays.toString(distance));
         System.out.println();
     }
 
