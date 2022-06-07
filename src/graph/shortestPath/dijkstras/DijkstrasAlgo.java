@@ -12,8 +12,6 @@ public class DijkstrasAlgo {
         Arrays.fill(distance, 999);
         distance[source] = 0;
 
-        distance[source] = 0;
-
         PriorityQueue<Pair> q = new PriorityQueue(n, new Comparator<Pair>() {
             @Override
             public int compare(Pair o1, Pair o2) {
