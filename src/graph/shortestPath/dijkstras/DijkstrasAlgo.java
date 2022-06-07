@@ -8,7 +8,6 @@ public class DijkstrasAlgo {
 
     public void dijShortestPath(List<ArrayList<Pair>> list, int n, int source) {
         int[] distance = new int[n];
-
         Arrays.fill(distance, 999);
         distance[source] = 0;
 
