@@ -8,9 +8,9 @@ import java.util.Queue;
 public class ConnectedBFS {
 
     public int numberOfConnectedComponents(List<ArrayList<Integer>> list, int n) {
-        boolean[] v = new boolean[n+1];
+        boolean[] v = new boolean[n + 1];
         int count = 0;
-        for (int i = 1; i <=n; i++) {
+        for (int i = 1; i <= n; i++) {
             if (!v[i]) {
                 count++;
                 BFS(v, list, i);

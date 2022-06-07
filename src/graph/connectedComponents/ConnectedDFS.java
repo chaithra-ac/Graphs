@@ -6,8 +6,8 @@ import java.util.List;
 public class ConnectedDFS {
     public int numberOfConnectedComponents(List<ArrayList<Integer>> list, int n) {
         int count = 0;
-        boolean[] v = new boolean[n+1];
-        for (int i = 1; i <=n; i++) {
+        boolean[] v = new boolean[n + 1];
+        for (int i = 1; i <= n; i++) {
             if (!v[i]) {
                 v[i] = true;
                 count++;
