@@ -72,16 +72,16 @@ public class Graph {
         List<ArrayList<Pair>> undwg = new ArrayList<>();
         for (int i = 0; i <=n; i++)
             undwg.add(new ArrayList<>());
-//     1-2
+//        1-2
         undwg.get(1).add(new Pair(2, 3));
         undwg.get(2).add(new Pair(1, 3));
-//         1-3
+//        1-3
         undwg.get(1).add(new Pair(3, 5));
         undwg.get(3).add(new Pair(1, 5));
-//         2-5
+//        2-5
         undwg.get(2).add(new Pair(5, 7));
         undwg.get(5).add(new Pair(2, 7));
-//      5-4
+//        5-4
         undwg.get(5).add(new Pair(4, 9));
         undwg.get(4).add(new Pair(5, 9));
 //        3-4
@@ -127,9 +127,12 @@ public class Graph {
         dwg.get(3).add(new Pair(2, 3));
 
 //        Negative weighted graph
-        int[][] nwg = {{3, 2, 6}, {5, 3, 1}, {0, 1, 5}, {1, 5, -3}, {1, 2, -2}, {3, 4, -2}, {2, 4, -2}, {2, 4, 3}};
+        int[][] nwg = {{3, 2, 6}, {5, 3, 1}, {0, 1, 5}, {1, 5, -3}, {1, 2, -2}, {3, 4, -2}, {2, 4, -2}};
         int nw = 6;
 
+//        weighted graph
+        int[][] wg = {{3, 2, 6}, {5, 3, 1}, {0, 1, 5}, {1, 5, 3}, {1, 2, 2}, {3, 4, 2}, {2, 4, 2}};
+        int w = 6;
 //     traversal
         System.out.println("BFS");
         BFS bt = new BFS();
@@ -205,7 +208,7 @@ public class Graph {
 //      Kruskal Algorithm
         KruskalAlgo ka = new KruskalAlgo();
         System.out.println("Minimum spanning tree of the graph using Kruskal Algorithm");
-        ka.kruskalAlgo(undwg, n);
+        ka.kruskalAlgo(wg, w);
 
     }
 }
