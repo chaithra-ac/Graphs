@@ -7,7 +7,6 @@ import java.util.List;
 
 public class KruskalAlgo {
 
-
     public void kruskalAlgo(int[][] wg, int w) {
         Arrays.sort(wg, new Comparator<int[]>() {
             @Override
